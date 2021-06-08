@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <script src="https://kit.fontawesome.com/dcd8731199.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles.css?version=3">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -15,17 +15,18 @@
 
     <section>
         <article>
-        <img src=""><br />
+        <img src="" /><br />
         <h2>Nom du partenaire</h2>
         <p><a href="">Lien</a></p>
         <p>Contenu textuel</p>
         </article>
-    </section>
-
-    <section>
         <article>
         <p>Commentaires
-        <button>Nouveau commentaire</button><button><i class="far fa-thumbs-up"></i></button><button><i class="far fa-thumbs-down"></i></button>
+        <span id="buttondroite"><button class="button" onclick="window.location.href = 'newcomment.php';">Nouveau commentaire</button><button class="button2"><i class="far fa-thumbs-up"></i></button><button class="button2"><i class="far fa-thumbs-down"></i></button></span>
+        </p>
+        </article>
+        <article>
+            Liste des commentaires déjà postés.
         </article>
     </section>
 

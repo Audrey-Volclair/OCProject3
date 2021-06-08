@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles.css?version=1">
     <title>GBAF Intranet Index</title>
 </head>
 <body>
@@ -14,46 +14,52 @@
     </header>
 
     <section>
+        <article id="cadrepresa">
+        <center>
         <h1>Groupement banque-assurance français</h1>
         <p>texte présentation du GBAF et du site</p>
-    </section>
-
-    <section>
+        <img src="" />
+        </center>
+        </article>
         <article>
-        <img src="">
-        <h3>Nom du partenaire</h3>
-        <p>contenu textuel + lien</p>
-        <button>Lire la suite</button>
+        <h2>H2</h2>
+        <p>texte acteurs et partenaires</p>
         </article>
         <article>
         <img src="">
         <h3>Nom du partenaire</h3>
         <p>contenu textuel + lien</p>
-        <button>Lire la suite</button>
+        <button class="button">Lire la suite</button>
         </article>
         <article>
         <img src="">
         <h3>Nom du partenaire</h3>
         <p>contenu textuel + lien</p>
-        <button>Lire la suite</button>
+        <button class="button">Lire la suite</button>
         </article>
         <article>
         <img src="">
         <h3>Nom du partenaire</h3>
         <p>contenu textuel + lien</p>
-        <button>Lire la suite</button>
+        <button class="button">Lire la suite</button>
         </article>
         <article>
         <img src="">
         <h3>Nom du partenaire</h3>
         <p>contenu textuel + lien</p>
-        <button>Lire la suite</button>
+        <button class="button">Lire la suite</button>
         </article>
         <article>
         <img src="">
         <h3>Nom du partenaire</h3>
         <p>contenu textuel + lien</p>
-        <button>Lire la suite</button>
+        <button class="button">Lire la suite</button>
+        </article>
+        <article>
+        <img src="">
+        <h3>Nom du partenaire</h3>
+        <p>contenu textuel + lien</p>
+        <button class="button">Lire la suite</button>
         </article>
     </section>
 
