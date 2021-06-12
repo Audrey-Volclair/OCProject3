@@ -1,3 +1,12 @@
+<?php
+    // début session
+    session_start();
+
+    if(!$_SESSION['username'])
+    {
+        header("location: connexion_page.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -5,7 +14,7 @@
     <script src="https://kit.fontawesome.com/dcd8731199.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" type="text/css" href="/styles.css?version=3">
+    <link rel="stylesheet" type="text/css" href="/styles.css?version=4">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
