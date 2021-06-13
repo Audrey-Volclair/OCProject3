@@ -29,8 +29,7 @@
 
             <form method="post" action="newcomment.php">
                 <label for="username">username</label><br /><input type="text" name="username" /><br />
-                <label for"commentaire">Commentaire</label><br /><textarea name="commentaire" rows="20"
-                    cols="150"></textarea><br />
+                <label for="post">Commentaire</label><br /><textarea name="post" rows="20" cols="150"></textarea><br />
                 <input type="submit" class="button" value="Valider">
             </form>
         </section>

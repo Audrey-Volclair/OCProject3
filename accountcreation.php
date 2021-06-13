@@ -24,10 +24,17 @@
                     {
                         if($usernamelength <= '100')
                         {
-                            if($passwordlength >= '8')
+                            $requsername = $bdd->prepare("SELECT * FROM account WHERE username = ?");
+                            $requsername->execute(array($username));
+                            $usernameexist = $requsername->rowcount();
+
+                            if($usernameexist == 0)
                             {
-                                if($reponselength <= '100')
-                                {// Inscription dans la bdd
+                                if($passwordlength >= '8')
+                                {
+                                    if($reponselength <= '100')
+                                    {
+                                    // Inscription dans la bdd
                                     $req = $bdd->prepare('INSERT INTO account(nom, prenom, username, password, question, reponse) VALUES(:nom, :prenom, :username, :password, :question, :reponse)');
                                     $req->execute(array(
                                         'nom' => $nom,
@@ -37,17 +44,22 @@
                                         'question' => $question,
                                         'reponse' => $reponse,
                                     ));
-                                    header('location:connexion.php');
+                                    header('location:connexion_page.php');
                                     
+                                    }
+                                    else
+                                    {
+                                        $erreur ="La réponse à votre question secrète ne doit pas contenir plus de 100 caractères!";
+                                    }
                                 }
-                                else
+                                else 
                                 {
-                                    $erreur ="La réponse à votre question secrète ne doit pas contenir plus de 100 caractères!";
+                                    $erreur="Votre mot de passe doit contenir au minimum 8 caractères!";
                                 }
                             }
                             else
                             {
-                                $erreur = "Votre mot de passe doit contenir au minimum 8 caractères!"; 
+                                $erreur = "Cet username existe déjà!"; 
                             }
                         }
                         else

@@ -6,6 +6,8 @@
     {
         header("location: connexion_page.php");
     }
+
+    require("bdd_connexion.php");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -36,42 +38,28 @@
                 <h2>H2</h2>
                 <p>texte acteurs et partenaires</p>
             </article>
+
+            <?php
+                    $req = $bdd->query('SELECT * FROM acteur');
+                    // boucle récupération des données des différents acteurs
+                    while($data = $req->fetch())
+                    {
+                ?>
             <article>
-                <img src="">
-                <h3>Nom du partenaire</h3>
-                <p>contenu textuel + lien</p>
-                <button class="button">Lire la suite</button>
+                <img class="logo" src="<?php echo $data['logo'];?>" /><br />
+                <?php
+                    echo '<h2>' .$data['acteur']. '</h2>';
+                    echo substr($data['description'], 0, 100), '...';
+                ?>
+                <button class="button"
+                    onclick="window.location.href='partenaire_page.php?id=<?php echo $data['id_acteur']; ?>';">En savoir
+                    plus</button>
             </article>
-            <article>
-                <img src="">
-                <h3>Nom du partenaire</h3>
-                <p>contenu textuel + lien</p>
-                <button class="button">Lire la suite</button>
-            </article>
-            <article>
-                <img src="">
-                <h3>Nom du partenaire</h3>
-                <p>contenu textuel + lien</p>
-                <button class="button">Lire la suite</button>
-            </article>
-            <article>
-                <img src="">
-                <h3>Nom du partenaire</h3>
-                <p>contenu textuel + lien</p>
-                <button class="button">Lire la suite</button>
-            </article>
-            <article>
-                <img src="">
-                <h3>Nom du partenaire</h3>
-                <p>contenu textuel + lien</p>
-                <button class="button">Lire la suite</button>
-            </article>
-            <article>
-                <img src="">
-                <h3>Nom du partenaire</h3>
-                <p>contenu textuel + lien</p>
-                <button class="button">Lire la suite</button>
-            </article>
+            <?php
+                // Fermeture de la boucle
+                    }
+                ?>
+
         </section>
 
         <footer>
