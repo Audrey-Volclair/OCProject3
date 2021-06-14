@@ -1,43 +1,55 @@
 <?php
-    // début session
-    session_start();
+    require("bdd_connexion.php");
 
-    if(!$_SESSION['username'])
+    if(isset($_POST['commentaire']))
     {
-        header("location: connexion_page.php");
+        $username = htmlspecialchars($_POST['username']);
+        $post = htmlspecialchars($_POST['post']);
+        $id_user = ($_POST['id_user']);
+        $id_acteur = ($_POST['id_acteur']);
+
+        //on vérifie que le commentaire existe et qu'il n'est pas vide
+        if(isset($_POST['post']) AND !EMPTY($_POST['post']))
+        {
+            //on vérifie que l'utilisateur n'a pas déjà commenté
+            $reqpostuser = $bdd->prepare('SELECT post FROM post WHERE id_user = :id_user AND id_acteur = :id_acteur');
+            $reqpostuser->execute(array(
+                'id_user' => $id_user,
+                'id_acteur' => $id_acteur,
+            ));
+
+            $postexist = $reqpostuser->rowcount();
+
+            if($postexist == 0)
+            {
+                //on insert dans la bdd
+                $reqpost = $bdd->prepare('INSERT INTO post(id_user, id_acteur, post, date_add) VALUES(:id_user, :id_acteur, :post, NOW())');
+                $reqpost->execute(array(
+                    'id_user' => $id_user,
+                    'id_acteur' => $id_acteur,
+                    'post' => $post
+                ));
+                echo('<p style="color: red;">Votre commentaire a bien été envoyé!</p>');
+            }
+            else
+            {
+                echo('<p style="color: red;">Vous ne pouvez commenter qu\'une seule fois la page d\'un acteur</p>');
+            }
+        }
+        else
+        {
+            echo('<p style="color: red;">Vous ne pouvez pas envoyer un commentaire vide!</p>');
+        }
     }
+
+    var_dump($_POST);
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/styles.css?version=4">
-    <title>GBAF Intranet Index</title>
-</head>
-
-<body>
-    <div id="main">
-        <header>
-            <?php include("header.php"); ?>
-        </header>
-
-        <section>
-
-            <form method="post" action="newcomment.php">
-                <label for="username">username</label><br /><input type="text" name="username" /><br />
-                <label for="post">Commentaire</label><br /><textarea name="post" rows="20" cols="150"></textarea><br />
-                <input type="submit" class="button" value="Valider">
-            </form>
-        </section>
-
-        <footer>
-            <?php include("footer.php"); ?>
-        </footer>
-    </div>
-</body>
-
-</html>
+<form method="post" action="partenaire_page.php?id=<?php echo $_GET['id']; ?>">
+    <input type="hidden" name="username" value="<?php echo($_SESSION['username']);?>" /><br />
+    <label for="post">Commentaire</label><br /><textarea name="post" rows="20" cols="150"
+        placeholder="Donnez-nous votre avis!"></textarea><br />
+    <input type="hidden" name="id_user" value="<?php echo ($_SESSION['id_user']);?>">
+    <input type="hidden" name="id_acteur" value="<?php echo($_GET['id']); ?>">
+    <input type="submit" name="commentaire" class="button" value="Valider">
+</form>

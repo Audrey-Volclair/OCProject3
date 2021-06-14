@@ -7,6 +7,7 @@
         header("location: connexion_page.php");
     }
     require("bdd_connexion.php");
+    
     // verification id acteur
     if(isset($_GET['id']) AND !empty($_GET['id']))
     {
@@ -55,11 +56,7 @@
                 Liste des commentaires déjà postés.
             </article>
             <article id="textwrapper">
-                <form method="post" action="newcomment.php">
-                    <label for="username">username</label><br /><input type="text" name="username" /><br />
-                    <label for="post">Commentaire</label><br /><textarea name="post"></textarea><br />
-                    <input type="submit" class="button" value="Valider">
-                </form>
+                <?php include("newcomment.php");?>
             </article>
         </section>
 

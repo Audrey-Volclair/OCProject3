@@ -23,8 +23,8 @@
                     if($prenomlength <= '100')
                     {
                         if($usernamelength <= '100')
-                        {
-                            $requsername = $bdd->prepare("SELECT * FROM account WHERE username = ?");
+                        {   //verification que le username n'est pas déjà utilisé
+                            $requsername = $bdd->prepare('SELECT * FROM account WHERE username = ?');
                             $requsername->execute(array($username));
                             $usernameexist = $requsername->rowcount();
 
@@ -67,7 +67,8 @@
                             $erreur = "Votre Username ne doit pas contenir plus de 100 caractères!";
                         }
                     }
-                    else{
+                    else
+                    {
                         $erreur = "Votre Prénom ne doit pas contenir plus de 100 caractères!";
                     }
                 }
