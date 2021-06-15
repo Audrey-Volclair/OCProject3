@@ -41,13 +41,11 @@
             echo('<p style="color: red;">Vous ne pouvez pas envoyer un commentaire vide!</p>');
         }
     }
-
-    var_dump($_POST);
 ?>
 
 <form method="post" action="partenaire_page.php?id=<?php echo $_GET['id']; ?>">
     <input type="hidden" name="username" value="<?php echo($_SESSION['username']);?>" /><br />
-    <label for="post">Commentaire</label><br /><textarea name="post" rows="20" cols="150"
+    <label for="post">Ecrire un nouveau commentaire</label><br /><textarea name="post" rows="20" cols="150"
         placeholder="Donnez-nous votre avis!"></textarea><br />
     <input type="hidden" name="id_user" value="<?php echo ($_SESSION['id_user']);?>">
     <input type="hidden" name="id_acteur" value="<?php echo($_GET['id']); ?>">
