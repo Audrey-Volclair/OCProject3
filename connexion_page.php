@@ -1,3 +1,7 @@
+<?php
+    require("connexion.php");
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -5,8 +9,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/styles.css?version=4">
-    <title>GBAF Intranet Index</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css?version=7">
+    <title>GBAF Extranet Connexion</title>
 </head>
 
 <body>
@@ -15,15 +19,23 @@
             <?php include("header.php"); ?>
         </header>
 
-        <section>
+        <section id="connexion">
             <center>
-                <form method="post" action="connexion.php">
+                <?php
+                    if(isset($erreur))
+                    {
+                    echo('<p style="color: red;">' .$erreur. '</p>');
+                    }
+                    ?>
+                <h3>Connexion</h3><br />
+                <form method="post" action="">
                     <label for="username">UserName</label></br /><input type="text" name="username" /><br />
                     <label for="password">Mot de Passe</label><br /><input type="password"
                         name="password" /><br /><br />
-                    <input type="submit" class="button" value="Valider">
+                    <input type="submit" name="connexion" class="button" value="Valider">
                 </form>
-
+                <br />
+                <a href="reinit_mdp.php">Mot de passe oublié?</a>
             </center>
         </section>
 

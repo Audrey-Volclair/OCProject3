@@ -28,7 +28,6 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 }
 
 article {
@@ -50,7 +49,11 @@ footer {
     margin-right: auto;
     text-align: center;
     padding-top: 10px;
-    padding-bottom: 10px;
+}
+
+ul {
+    margin-left: 0;
+    padding-left: 40px;
 }
 
 
@@ -63,6 +66,9 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 2px 2px 15px grey;
+    padding: 50px;
+    width: 100%;
 }
 
 #textheader {
@@ -124,6 +130,10 @@ a:hover {
     width: 100%;
 }
 
+#logo_index {
+    width: 25%;
+}
+
 input,
 select {
     margin-bottom: 5px;
@@ -136,8 +146,36 @@ textarea {
 
 .textwrapper {
     display: block;
-    border: 3px solid #38c;
     padding: 10px;
+}
+
+#connexion {
+    box-shadow: 2px 2px 15px grey;
+    border-radius: 10px;
+    padding: 50px;
+    width: 300px;
+
+}
+
+#creationaccount {
+    box-shadow: 2px 2px 15px grey;
+    border-radius: 10px;
+    padding: 50px;
+    width: 500px;
+}
+
+#profil {
+    box-shadow: 2px 2px 15px grey;
+    border-radius: 10px;
+    padding: 50px;
+    width: 500px;
+}
+
+#reinit_mdp {
+    box-shadow: 2px 2px 15px grey;
+    border-radius: 10px;
+    padding: 50px;
+    width: 500px;
 }
 
 @media screen and (max-width: 414px) {

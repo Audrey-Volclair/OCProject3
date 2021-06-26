@@ -29,7 +29,7 @@
                     'id_acteur' => $id_acteur,
                     'post' => $post
                 ));
-                echo('<p style="color: red;">Votre commentaire a bien été envoyé!</p>');
+                header('location: partenaire_page.php?id='.$data['id_acteur']);
             }
             else
             {
@@ -43,7 +43,7 @@
     }
 ?>
 
-<form method="post" action="partenaire_page.php?id=<?php echo $_GET['id']; ?>">
+<form method="post" action="partenaire_page.php?id=<?= $_GET['id']; ?>">
     <input type="hidden" name="username" value="<?php echo($_SESSION['username']);?>" /><br />
     <label for="post">Ecrire un nouveau commentaire</label><br /><textarea name="post" rows="20" cols="150"
         placeholder="Donnez-nous votre avis!"></textarea><br />

@@ -29,11 +29,12 @@
 <html lang="fr">
 
 <head>
-    <script src="https://kit.fontawesome.com/dcd8731199.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" type="text/css" href="/styles.css?version=9">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/dcd8731199.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/styles.css?version=4">
+    <title>GBAF Extranet</title>
 </head>
 
 <body>
@@ -48,9 +49,8 @@
                 <img class="logo" src="<?php echo $data['logo'];?>" /><br />
                 <?php
                     echo '<h2>' .$data['acteur']. '</h2>';
-                    echo nl2br($data['description']);
+                    echo ($data['description']);
                 ?>
-
             </article>
             <article>
                 <p>
@@ -78,8 +78,13 @@
             </article>
             <article>
                 <?php
+<<<<<<< HEAD
                     //Selection des données des commentaires en inner join pour aussi récupérer l'username associté au commentaire
                     $req = $bdd->prepare('SELECT post.id_post, post.id_user, post.id_acteur, DATE_FORMAT(date_add, \'%d/%m/%Y\') as post_date, post.post, account.id_user, account.username FROM post INNER JOIN account ON post.id_user = account.id_user
+=======
+                    //Selection des données des commentaires en inner join pour aussi récupérer le prénom associé au commentaire
+                    $req = $bdd->prepare('SELECT post.id_post, post.id_user, post.id_acteur, DATE_FORMAT(date_add, \'%d/%m/%Y\') as post_date, post.post, account.id_user, account.prenom FROM post INNER JOIN account ON post.id_user = account.id_user
+>>>>>>> c8b2910 (corrections, mise en place confimation mdp et réinitialisation du mdp)
                     WHERE id_acteur = ? ORDER BY date_add DESC');
                     $req->execute(array($_GET['id']));
                     
@@ -88,8 +93,13 @@
                     {
                     ?>
 
+<<<<<<< HEAD
                 <p><strong><?php echo $comment['username'];?></strong>, le <?php echo $comment['post_date'];?></p>
                 <p><?php echo $comment['post'];?>
+=======
+                <p><strong><?= $comment['prenom'];?></strong>, le <?= $comment['post_date'];?></p>
+                <p><?= $comment['post'];?>
+>>>>>>> c8b2910 (corrections, mise en place confimation mdp et réinitialisation du mdp)
 
                     <?php
                     }

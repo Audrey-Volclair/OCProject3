@@ -7,7 +7,8 @@
                 $nom = htmlspecialchars($_POST['nom']);
                 $prenom = htmlspecialchars($_POST['prenom']);
                 $username = htmlspecialchars($_POST['username']);
-                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                $password = htmlspecialchars($_POST['password']);
+                $verifpassword = htmlspecialchars($_POST['verifpassword']);
                 $question = ($_POST['question']);
                 $reponse = htmlspecialchars($_POST['reponse']);
                 
@@ -32,24 +33,32 @@
                             {
                                 if($passwordlength >= '8')
                                 {
-                                    if($reponselength <= '100')
+                                    // Vérification mot de passe identiques
+                                    if($password == $verifpassword)
                                     {
-                                    // Inscription dans la bdd
-                                    $req = $bdd->prepare('INSERT INTO account(nom, prenom, username, password, question, reponse) VALUES(:nom, :prenom, :username, :password, :question, :reponse)');
-                                    $req->execute(array(
-                                        'nom' => $nom,
-                                        'prenom' => $prenom,
-                                        'username' => $username,
-                                        'password' => $password,
-                                        'question' => $question,
-                                        'reponse' => $reponse,
-                                    ));
-                                    header('location:connexion_page.php');
+                                        if($reponselength <= '100')
+                                        {
+                                            // Inscription dans la bdd
+                                            $req = $bdd->prepare('INSERT INTO account(nom, prenom, username, password, question, reponse) VALUES(:nom, :prenom, :username, :password, :question, :reponse)');
+                                            $req->execute(array(
+                                            'nom' => $nom,
+                                            'prenom' => $prenom,
+                                            'username' => $username,
+                                            'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
+                                            'question' => $question,
+                                            'reponse' => $reponse,
+                                            ));
+                                            header('location:connexion_page.php');
                                     
+                                        }
+                                        else
+                                        {
+                                            $erreur ="La réponse à votre question secrète ne doit pas contenir plus de 100 caractères!";
+                                        }
                                     }
                                     else
                                     {
-                                        $erreur ="La réponse à votre question secrète ne doit pas contenir plus de 100 caractères!";
+                                        $erreur = "Les mots de passes ne sont pas indentiques!";
                                     }
                                 }
                                 else 
