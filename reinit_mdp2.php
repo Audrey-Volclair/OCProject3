@@ -64,9 +64,9 @@
                     echo('<p style="color: red;">' .$erreur. '</p>');
                     }
                     ?><br />
-                    <label for="newpassword">Nouveau mot de passe</label></br /><input type="text"
+                    <label for="newpassword">Nouveau mot de passe</label></br /><input type="password"
                         name="newpassword" /><br />
-                    <label for="verifnewpassword">Confirmation Nouveau mot de passe</label></br /><input type="text"
+                    <label for="verifnewpassword">Confirmation Nouveau mot de passe</label></br /><input type="password"
                         name="verifnewpassword" /><br />
                     <br />
                     <input type="submit" name="reinit_mdp2" class="button" value="Valider">

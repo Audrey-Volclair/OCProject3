@@ -4,9 +4,9 @@
 
     //modification profil
 
-    if(isset($_POST['accountmodification']))
+    if(isset($_SESSION['id_user']))
     {
-        if(isset($_SESSION['id_user']))
+        if(isset($_POST['accountmodification1']))
         {
             $requser = $bdd->prepare("SELECT * FROM account WHERE id_user = ?");
             $requser->execute(array($_SESSION['id_user']));
@@ -44,17 +44,45 @@
 
                 else
                 {
-                    $erreur ="Cet username existe déjà!";
+                    $erreur1 ="Cet username existe déjà!";
                 }
             }
+        }
+
+        if(isset($_POST['accountmodification2']))
+        {
+            $requser = $bdd->prepare("SELECT * FROM account WHERE id_user = ?");
+            $requser->execute(array($_SESSION['id_user']));
+            $user = $requser->fetch();
 
             if(isset($_POST['newpassword']) AND !EMPTY($_POST['newpassword']))
             {
-                $newpassword = password_hash($_POST['newpassword'], PASSWORD_DEFAULT);
-                $insertpassword= $bdd->prepare("UPDATE account SET password = ? WHERE id_user = ?");
-                $insertpassword->execute(array($newpassword, $_SESSION['id_user']));
-                header('location: profile_page.php?id='.$_SESSION['id_user']);
+                if(isset($_POST['verifnewpassword']) AND !EMPTY($_POST['verifnewpassword']))
+                {
+                    $newpassword = $_POST['newpassword'];
+                    $verifnewpassword = $_POST['verifnewpassword'];
+
+                    if($newpassword == $verifnewpassword)
+                    {
+                    $insertpassword= $bdd->prepare("UPDATE account SET password = :newpassword WHERE id_user = :id_user");
+                    $insertpassword->execute(array(
+                        'newpassword' => password_hash($_POST['newpassword'], PASSWORD_DEFAULT),
+                        'id_user' => $_SESSION['id_user']));
+                    header('location: profile_page.php?id='.$_SESSION['id_user']);
+                    }
+                    else
+                    {
+                        $erreur2 = "Les mots de passe ne correspondent pas";
+                    }
+                }
             }
+        }
+
+        if(isset($_POST['accountmodification3']))
+        {
+            $requser = $bdd->prepare("SELECT * FROM account WHERE id_user = ?");
+            $requser->execute(array($_SESSION['id_user']));
+            $user = $requser->fetch();
 
             if(isset($_POST['newquestion']) AND !EMPTY($_POST['newquestion']) AND $_POST['newquestion'] != $user['question'])
             {
@@ -73,4 +101,5 @@
             }
         }
     }
+    
 ?>

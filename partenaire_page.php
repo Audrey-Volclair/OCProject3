@@ -78,13 +78,8 @@
             </article>
             <article>
                 <?php
-<<<<<<< HEAD
-                    //Selection des données des commentaires en inner join pour aussi récupérer l'username associté au commentaire
-                    $req = $bdd->prepare('SELECT post.id_post, post.id_user, post.id_acteur, DATE_FORMAT(date_add, \'%d/%m/%Y\') as post_date, post.post, account.id_user, account.username FROM post INNER JOIN account ON post.id_user = account.id_user
-=======
                     //Selection des données des commentaires en inner join pour aussi récupérer le prénom associé au commentaire
                     $req = $bdd->prepare('SELECT post.id_post, post.id_user, post.id_acteur, DATE_FORMAT(date_add, \'%d/%m/%Y\') as post_date, post.post, account.id_user, account.prenom FROM post INNER JOIN account ON post.id_user = account.id_user
->>>>>>> c8b2910 (corrections, mise en place confimation mdp et réinitialisation du mdp)
                     WHERE id_acteur = ? ORDER BY date_add DESC');
                     $req->execute(array($_GET['id']));
                     
@@ -93,13 +88,8 @@
                     {
                     ?>
 
-<<<<<<< HEAD
-                <p><strong><?php echo $comment['username'];?></strong>, le <?php echo $comment['post_date'];?></p>
-                <p><?php echo $comment['post'];?>
-=======
                 <p><strong><?= $comment['prenom'];?></strong>, le <?= $comment['post_date'];?></p>
                 <p><?= $comment['post'];?>
->>>>>>> c8b2910 (corrections, mise en place confimation mdp et réinitialisation du mdp)
 
                     <?php
                     }
