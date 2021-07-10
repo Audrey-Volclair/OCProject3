@@ -29,52 +29,33 @@
             }
         }
     }
-?>
+    
+    include("header.php"); ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/styles.css?version=6">
-    <title>GBAF Extranet</title>
-</head>
-
-<body>
-    <div id="main">
-        <header>
-            <?php include("header.php"); ?>
-        </header>
-
-        <section id="reinit_mdp">
-            <center>
-                <h3>Réinitiatlisation Mot de Passe</h3><br />
-                <form method="post" action="">
-                    <?php
+<section class="center" id="reinit_mdp">
+    <h3>Réinitiatlisation Mot de Passe</h3><br />
+    <form method="post" action="reinit_mdp.php">
+        <?php
                     if(isset($erreur))
                     {
                     echo('<p style="color: red;">' .$erreur. '</p>');
                     }
                     ?><br />
-                    <label for="username">UserName</label></br /><input type="text" name="username" /><br />
-                    <label for="question">Question secrète:</label><br />
-                    <select name="question">
-                        <option value="choix1">Nom de jeune fille de votre mère</option>
-                    </select><br />
-                    <label for="reponse">Réponse à la question secrète:</label><br /><input type="test"
-                        placeholder="Réponse à votre question secrète" name="reponse"><br /><br />
-                    <input type="submit" name="reinit_mdp" class="button" value="Valider">
-                </form>
-                <br />
-            </center>
-        </section>
+        UserName<br /><input type="text" name="username" /><br />
+        Question secrète:<br />
+        <select name="question">
+            <option value="Nom de jeune fille de votre mère">Nom de jeune fille de votre mère</option>
+            <option value="Quel est votre animal préféré?">Quel est votre animal préféré?
+            </option>
+            <option value="Quelle est la ville de naissance de votre père?">Quelle est la ville
+                de naissance de votre père?
+            </option>
+        </select><br />
+        Réponse à la question secrète:<br /><input type="text" placeholder="Réponse à votre question secrète"
+            name="reponse"><br /><br />
+        <input type="submit" name="reinit_mdp" class="button" value="Valider">
+    </form>
+    <br />
+</section>
 
-        <footer>
-            <?php include("footer.php");?>
-        </footer>
-    </div>
-</body>
-
-</html>
+<?php include("footer.php");?>

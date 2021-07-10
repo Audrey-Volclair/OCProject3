@@ -48,7 +48,7 @@
                                             'question' => $question,
                                             'reponse' => $reponse,
                                             ));
-                                            header('location:connexion_page.php');
+                                            $success ="Votre compte a bien été créé!";
                                     
                                         }
                                         else

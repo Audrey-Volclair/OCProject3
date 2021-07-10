@@ -31,12 +31,12 @@ section {
 }
 
 article {
-    border: solid #000000 1px;
+    box-shadow: 2px 2px 15px grey;
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
-    padding: 5px 3px 5px 3px;
+    padding: 5px 5px 5px 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,6 +56,42 @@ ul {
     padding-left: 40px;
 }
 
+input,
+select {
+    margin-bottom: 5px;
+    width: 200px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Baloo 2', cursive;
+}
+
+h1 {
+    font-size: 32px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 26px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+input[type="submit"] {
+    width: auto;
+}
+
+p {
+    text-align: justify;
+}
+
+td {
+    text-align: justify;
+}
 
 #main {
 
@@ -71,9 +107,31 @@ ul {
     width: 100%;
 }
 
+#textheaderuser {
+    padding-top: 20px;
+    padding-right: 10px;
+    font-size: 24px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: bold;
+}
+
 #textheader {
     padding-top: 20px;
     padding-right: 10px;
+}
+
+#comm_vote {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#prenom_comm {
+    font-weight: bold;
+}
+
+.center {
+    text-align: center;
 }
 
 .button {
@@ -81,11 +139,12 @@ ul {
     background-color: red;
     color: white;
     border: none;
+    max-width: 200px;
     border-radius: 5px;
-    max-width: 400px;
     margin-right: 2px;
     margin-left: 2px;
     margin-top: 5px;
+    cursor: pointer;
 }
 
 .button:hover {
@@ -94,18 +153,50 @@ ul {
     border-radius: 10px;
 }
 
-.button2 {
+.buttoncomm {
+    padding: 5px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 2px;
+    margin-left: 2px;
+    cursor: pointer;
+}
+
+.buttoncenter {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.buttoncomm:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+    color: black;
+    border-radius: 10px;
+}
+
+.buttonlikedislike {
     padding: 5px;
     border: none;
     border-radius: 5px;
     width: 30px;
+    background: none;
+    cursor: pointer;
     margin-right: 2px;
     margin-left: 2px;
+    transition: color 0.3s;
 }
 
-.button2:hover {
-    color: black;
-    border-radius: 10px;
+.position {
+    margin: auto;
+}
+
+.like:hover {
+    color: green;
+}
+
+.dislike:hover {
+    color: red;
 }
 
 #cadrepresa {
@@ -130,12 +221,26 @@ a:hover {
     width: 100%;
 }
 
-#logo_index {
+figure {
     width: 25%;
 }
 
-input,
-select {
+#logo_index {
+    width: 100%;
+}
+
+#partenaires {
+    display: flex;
+    flex-direction: row;
+}
+
+#partenaires_right {
+    width: 75%;
+    margin: 5px;
+}
+
+select,
+input {
     margin-bottom: 5px;
     width: 170px;
 }
@@ -164,7 +269,7 @@ textarea {
     width: 500px;
 }
 
-#profil {
+.profil {
     box-shadow: 2px 2px 15px grey;
     border-radius: 10px;
     padding: 20px;
@@ -185,6 +290,11 @@ textarea {
 @media screen and (max-width: 414px) {
     #main {
         width: 100%;
+        padding: 0;
+    }
+
+    #textheaderuser {
+        font-size: 18px;
     }
 
     h2 {
@@ -203,6 +313,30 @@ textarea {
         width: 100%;
         font-size: 14px;
     }
+
+    figure {
+        width: 100%;
+    }
+
+    #logo_index {
+        width: 100%;
+    }
+
+    #partenaires {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #partenaires_right {
+        width: 100%;
+        margin: 5px;
+    }
+
+    #profil {
+        width: auto;
+        max-width: 350px;
+        ;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -211,7 +345,7 @@ textarea {
     }
 
     h2 {
-        font-size: 18px;
+        font-size: 26px;
     }
 
     p {

@@ -2,7 +2,7 @@
     // connexion bdd
     require("bdd_connexion.php");
 
-    //modification profil
+    //modification nom prénom username
 
     if(isset($_SESSION['id_user']))
     {
@@ -17,7 +17,8 @@
                 $newnom = htmlspecialchars($_POST['newnom']);
                 $insertnom= $bdd->prepare("UPDATE account SET nom = ? WHERE id_user = ?");
                 $insertnom->execute(array($newnom, $_SESSION['id_user']));
-                header('location: profile_page.php?id='.$_SESSION['id_user']);
+                $_SESSION ['nom'] = $newnom;
+                $success ="Les modifications ont été effectuées!";
             }
 
             if(isset($_POST['newprenom']) AND !EMPTY($_POST['newprenom']) AND $_POST['newprenom'] != $user['prenom'])
@@ -25,7 +26,8 @@
                 $newprenom = htmlspecialchars($_POST['newprenom']);
                 $insertprenom= $bdd->prepare("UPDATE account SET prenom = ? WHERE id_user = ?");
                 $insertprenom->execute(array($newprenom, $_SESSION['id_user']));
-                header('location: profile_page.php?id='.$_SESSION['id_user']);
+                $_SESSION ['prenom'] = $newprenom;
+                $success ="Les modifications ont été effectuées!";
             }
 
             if(isset($_POST['newusername']) AND !EMPTY($_POST['newusername']) AND $_POST['newusername'] != $user['username'])
@@ -39,7 +41,8 @@
                 {
                     $insertusername= $bdd->prepare("UPDATE account SET username = ? WHERE id_user = ?");
                     $insertusername->execute(array($newusername, $_SESSION['id_user']));
-                    header('location: profile_page.php?id='.$_SESSION['id_user']);
+                    $_SESSION ['username'] = $newusername;
+                    $success ="Les modifications ont été effectuées!";
                 }
 
                 else
@@ -48,6 +51,8 @@
                 }
             }
         }
+
+    // modification mdp
 
         if(isset($_POST['accountmodification2']))
         {
@@ -59,8 +64,8 @@
             {
                 if(isset($_POST['verifnewpassword']) AND !EMPTY($_POST['verifnewpassword']))
                 {
-                    $newpassword = $_POST['newpassword'];
-                    $verifnewpassword = $_POST['verifnewpassword'];
+                    $newpassword = htmlspecialchars($_POST['newpassword']);
+                    $verifnewpassword = htmlspecialchars($_POST['verifnewpassword']);
 
                     if($newpassword == $verifnewpassword)
                     {
@@ -68,7 +73,7 @@
                     $insertpassword->execute(array(
                         'newpassword' => password_hash($_POST['newpassword'], PASSWORD_DEFAULT),
                         'id_user' => $_SESSION['id_user']));
-                    header('location: profile_page.php?id='.$_SESSION['id_user']);
+                        $success ="Le mot de passe a bien été modifié!";
                     }
                     else
                     {
@@ -78,6 +83,8 @@
             }
         }
 
+    // modification question secrète
+    
         if(isset($_POST['accountmodification3']))
         {
             $requser = $bdd->prepare("SELECT * FROM account WHERE id_user = ?");
@@ -89,7 +96,7 @@
                 $newquestion = ($_POST['newquestion']);
                 $insertquestion= $bdd->prepare("UPDATE account SET question = ? WHERE id_user = ?");
                 $insertquestion->execute(array($newquestion, $_SESSION['id_user']));
-                header('location: profile_page.php?id='.$_SESSION['id_user']);
+
             }
 
             if(isset($_POST['newreponse']) AND !EMPTY($_POST['newreponse']) AND $_POST['newreponse'] != $user['reponse'])
@@ -97,7 +104,7 @@
                 $newreponse = ($_POST['newreponse']);
                 $insertreponse= $bdd->prepare("UPDATE account SET reponse = ? WHERE id_user = ?");
                 $insertreponse->execute(array($newreponse, $_SESSION['id_user']));
-                header('location: profile_page.php?id='.$_SESSION['id_user']);
+                $success ="Les modifications ont été effectuées!";
             }
         }
     }

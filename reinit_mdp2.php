@@ -18,7 +18,9 @@
                         'password' => password_hash($newpassword, PASSWORD_DEFAULT),
                         'id_user' => $_SESSION['id_user']
                     ));
-                    header('connexion_page.php');
+                    $success ="Votre mot de passe a bien été modifié!";
+                    
+                    
                 }
                 else
                 {
@@ -35,49 +37,29 @@
     {
         header('location:connexion_page.php');
     }
+    
+    include("header.php"); ?>
 
-?>
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/styles.css?version=6">
-    <title>GBAF Extranet</title>
-</head>
-
-<body>
-    <div id="main">
-        <header>
-            <?php include("header.php"); ?>
-        </header>
-
-        <section id="reinit_mdp">
-            <center>
-                <h3>Réinitiatlisation Mot de Passe</h3><br />
-                <form method="post" action="">
-                    <?php
+<section class="center" id="reinit_mdp">
+    <h3>Réinitiatlisation Mot de Passe</h3><br />
+    <form method="post" action="reinit_mdp2.php">
+        <?php
+                    if(isset($success))
+                    {
+                        echo('<p class="center" style="color: red;">' .$success. '</p>');
+                        header('Refresh:2 ;url=connexion_page.php');
+                    }
+                    
                     if(isset($erreur))
                     {
                     echo('<p style="color: red;">' .$erreur. '</p>');
                     }
                     ?><br />
-                    <label for="newpassword">Nouveau mot de passe</label></br /><input type="password"
-                        name="newpassword" /><br />
-                    <label for="verifnewpassword">Confirmation Nouveau mot de passe</label></br /><input type="password"
-                        name="verifnewpassword" /><br />
-                    <br />
-                    <input type="submit" name="reinit_mdp2" class="button" value="Valider">
-                </form>
-            </center>
-        </section>
+        Nouveau mot de passe<br /><input type="password" name="newpassword" /><br />
+        Confirmation Nouveau mot de passe<br /><input type="password" name="verifnewpassword" /><br />
+        <br />
+        <input type="submit" name="reinit_mdp2" class="button" value="Valider">
+    </form>
+</section>
 
-        <footer>
-            <?php include("footer.php"); ?>
-        </footer>
-    </div>
-</body>
-
-</html>
+<?php include("footer.php"); ?>

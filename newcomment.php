@@ -49,5 +49,5 @@
         placeholder="Donnez-nous votre avis!"></textarea><br />
     <input type="hidden" name="id_user" value="<?php echo ($_SESSION['id_user']);?>">
     <input type="hidden" name="id_acteur" value="<?php echo($_GET['id']); ?>">
-    <input type="submit" name="commentaire" class="button" value="Valider">
+    <input type="submit" name="commentaire" class="button" id="buttondroite" value="Envoyer">
 </form>
