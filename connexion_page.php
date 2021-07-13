@@ -8,7 +8,7 @@
     <?php
                     if(isset($erreur))
                     {
-                    echo('<p style="color: red;">' .$erreur. '</p>');
+                    echo('<p class="center red">' .$erreur. '</p>');
                     }
                     ?>
     <h3>Connexion</h3><br />

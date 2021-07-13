@@ -38,7 +38,7 @@
         <?php
                     if(isset($erreur))
                     {
-                    echo('<p style="color: red;">' .$erreur. '</p>');
+                    echo('<p class="center red">' .$erreur. '</p>');
                     }
                     ?><br />
         UserName<br /><input type="text" name="username" /><br />

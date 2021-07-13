@@ -7,19 +7,19 @@
         <?php
                     if(isset($success))
                     {
-                        echo('<p class="center" style="color: red;">' .$success. '</p>');
+                        echo('<p class="center green">' .$success. '</p>');
                         header('Refresh:2 ;url=connexion_page.php');
                     }
                     
                     if(isset($erreur))
                     {
-                    echo('<p class="center" style="color: red;">' .$erreur. '</p>');
+                    echo('<p class="center red">' .$erreur. '</p>');
                     }
                     ?>
         <h2>Création d'un compte utilisateur</h2><br /><br />
         <table>
             <tr>
-                <td>
+                <td class="center">
                     Nom:
                 </td>
                 <td>
@@ -27,7 +27,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="center">
                     Prénom:
                 </td>
                 <td>
@@ -35,7 +35,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="center">
                     UserName:
                 </td>
                 <td>
@@ -43,7 +43,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="center">
                     Mot de Passe:
                 </td>
                 <td>
@@ -51,7 +51,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="center">
                     Confirmation Mot de Passe:
                 </td>
                 <td>
@@ -59,7 +59,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="center">
                     Question secrète:
                 </td>
                 <td>
@@ -75,7 +75,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="center">
                     Réponse à la question secrète:
                 </td>
                 <td>

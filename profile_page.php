@@ -18,20 +18,20 @@
 
 
 <div class="position">
-    <h2 class="center">Edition du profil</h2><br /><br />
+    <h2 class="center">Edition du profil</h2><br />
+    <?php 
+        if(isset($success))
+            {
+                echo('<p class="center green">' .$success. '</p>');
+            }
+        if(isset($erreur1))
+            {
+                echo('<p class="center red">' .$erreur1. '</p>');
+            }
+    ?>
+    <br />
     <form method="POST" action="profile_page.php">
         <div class="center profil">
-            <?php
-                    if(isset($success))
-                    {
-                        echo('<p class="center" style="color: red;">' .$success. '</p>');
-                    }
-                    
-                    if(isset($erreur1))
-                    {
-                    echo('<p style="color: red;">' .$erreur1. '</p>');
-                    }
-                    ?>
             <table>
                 <tr>
                     <td>
@@ -63,12 +63,6 @@
         </div>
 
         <div class="center profil">
-            <?php
-                if(isset($erreur2))
-                    {
-                    echo('<p style="color: red;">' .$erreur2. '</p>');
-                    }
-                    ?>
             <table>
                 <tr>
                     <td>
@@ -92,12 +86,6 @@
         </div>
 
         <div class="center profil">
-            <?php
-                    if(isset($erreur3))
-                    {
-                    echo('<p style="color: red;">' .$erreur3. '</p>');
-                    }
-                    ?>
             <table>
                 <tr>
                     <td>

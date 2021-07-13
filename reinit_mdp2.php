@@ -46,13 +46,13 @@
         <?php
                     if(isset($success))
                     {
-                        echo('<p class="center" style="color: red;">' .$success. '</p>');
+                        echo('<p class="center green">' .$success. '</p>');
                         header('Refresh:2 ;url=connexion_page.php');
                     }
                     
                     if(isset($erreur))
                     {
-                    echo('<p style="color: red;">' .$erreur. '</p>');
+                    echo('<p class="center red">' .$erreur. '</p>');
                     }
                     ?><br />
         Nouveau mot de passe<br /><input type="password" name="newpassword" /><br />

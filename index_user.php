@@ -36,7 +36,7 @@
         l'activité bancaire à l’échelle nationale. C’est aussi un interlocuteur privilégié des
         pouvoirs publics.</p>
         <br />
-        <img src="images/banque-finance.jpg" width="990" alt="image courbe banque" />
+        <img src="images/banque-finance.jpg" id="image_index" alt="image courbe banque" />
 
     </article>
     <article>

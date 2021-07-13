@@ -90,7 +90,8 @@ p {
 }
 
 td {
-    text-align: justify;
+    text-align: center;
+    width: 50%;
 }
 
 #main {
@@ -249,7 +250,7 @@ textarea {
     width: 100%;
 }
 
-.textwrapper {
+#textwrapper {
     display: block;
     padding: 10px;
 }
@@ -266,7 +267,7 @@ textarea {
     box-shadow: 2px 2px 15px grey;
     border-radius: 10px;
     padding: 50px;
-    width: 500px;
+    width: 50%;
 }
 
 .profil {
@@ -274,10 +275,22 @@ textarea {
     border-radius: 10px;
     padding: 20px;
     margin: 10px;
-    width: 500px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+#image_index {
+    width: 100%;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
 }
 
 #reinit_mdp {
@@ -322,6 +335,10 @@ textarea {
         width: 100%;
     }
 
+    #creationaccount {
+        width: 100%;
+    }
+
     #partenaires {
         display: flex;
         flex-direction: column;
@@ -332,10 +349,8 @@ textarea {
         margin: 5px;
     }
 
-    #profil {
-        width: auto;
-        max-width: 350px;
-        ;
+    .profil {
+        width: 95%;
     }
 }
 
@@ -354,6 +369,10 @@ textarea {
 
     .button {
         margin-bottom: 3px;
+    }
+
+    #creationaccount {
+        width: 75%;
     }
 
     article {
