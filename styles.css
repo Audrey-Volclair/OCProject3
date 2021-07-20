@@ -240,12 +240,6 @@ figure {
     margin: 5px;
 }
 
-select,
-input {
-    margin-bottom: 5px;
-    width: 170px;
-}
-
 textarea {
     width: 100%;
 }
@@ -269,6 +263,7 @@ textarea {
     padding: 50px;
     width: 50%;
 }
+
 
 .profil {
     box-shadow: 2px 2px 15px grey;
@@ -323,7 +318,7 @@ textarea {
     }
 
     article {
-        width: 100%;
+        width: 90%;
         font-size: 14px;
     }
 
@@ -352,6 +347,10 @@ textarea {
     .profil {
         width: 95%;
     }
+
+    #reinit_mdp {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -372,7 +371,7 @@ textarea {
     }
 
     #creationaccount {
-        width: 75%;
+        width: 100%;
     }
 
     article {
